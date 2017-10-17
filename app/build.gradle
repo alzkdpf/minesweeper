@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'com.jakewharton.hugo'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.example.michaellim.minegame"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // Anko
+    implementation 'org.jetbrains.anko:anko-sdk15:0.8.3' // sdk19, sdk21, sdk23 are also available
+    implementation 'org.jetbrains.anko:anko-support-v4:0.8.3' // In case you need support-v4 bindings
+    implementation 'org.jetbrains.anko:anko-appcompat-v7:0.8.2' // For appcompat-v7 bindings
+
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    // Because RxAndroid releases are few and far between, it is recommended you also
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+    implementation 'io.reactivex:rxjava:1.2.6'
+    implementation 'io.reactivex:rxjava-math:1.0.0'
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.3.0'
+    implementation 'io.reactivex:rxkotlin:0.55.0'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
