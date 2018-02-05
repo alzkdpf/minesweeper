@@ -167,11 +167,6 @@ class MainActivity : AppCompatActivity() {
         for (row in 0 until ROW - 1) {
             for (col in 0 until COL - 1) {
                 MINE[row][col] = MINE_STATUS.NOT_SET.value
-            }
-        }
-
-        for (row in 0 until ROW - 1) {
-            for (col in 0 until COL - 1) {
                 BOX_STATUS[row][col] = CHECK_STATUS.CLOSE
             }
         }
